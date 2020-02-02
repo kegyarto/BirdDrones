@@ -12,6 +12,8 @@ public class BirdController : MonoBehaviour
     public float rotationSpeed;
     public float rotX;
     public float rotY;
+    public GameObject cannon;
+    public GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +25,14 @@ public class BirdController : MonoBehaviour
     void Update()
     {
         //move player left right up down
-        transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0f, Input.GetAxis("Vertical") * Time.deltaTime * speed);
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0f, Input.GetAxis("Vertical") * Time.deltaTime * speed);
+        }
+        else
+        {
+            transform.Translate(0f, 0f, 0f);
+        }
 
         //rotate camera based on mouse input
         rotX -= Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSpeed;
@@ -44,5 +53,12 @@ public class BirdController : MonoBehaviour
 
         transform.forward = cam.transform.forward;
 
+        //shooting bullet
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject newBullet = GameObject.Instantiate(bullet, cannon.transform.position, cannon.transform.rotation) as GameObject;
+            newBullet.GetComponent<Rigidbody>().velocity += Vector3.up * 1;
+            newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 1500);
+        }
     }
 }

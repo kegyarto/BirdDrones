@@ -14,11 +14,13 @@ public class BirdController : NetworkBehaviour
     public float rotY;
     public GameObject cannon;
     public GameObject bullet;
+    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         speed = 10f;
         rotationSpeed = 100f;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -40,7 +42,7 @@ public class BirdController : NetworkBehaviour
         }
         else
         {
-            transform.Translate(0f, 0f, 0f);
+            rb.velocity = Vector3.zero;
         }
 
         //rotate camera based on mouse input

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2942539787926834101}
   - component: {fileID: 5339616483406786617}
   - component: {fileID: -2358869937609108317}
+  - component: {fileID: 8178872142835253794}
   m_Layer: 0
   m_Name: FireDrone
   m_TagString: Untagged
@@ -96,7 +97,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 90
   m_CollisionDetection: 0
 --- !u!65 &2942539787926834101
 BoxCollider:
@@ -156,3 +157,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95cbc592b0329b7468e0cb6741645a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 100
+--- !u!114 &8178872142835253794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2942539787926801680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1

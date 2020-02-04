@@ -8,12 +8,15 @@ public class DroneSpawner : NetworkBehaviour
 
     public GameObject WaterDrone;
     public GameObject FireDrone;
+    public GameObject Door;
     public GameObject[] myObjects;
+    public GameObject[] doorObjects;
 
     // Start is called before the first frame update
     public override void OnStartServer()
     {
         SpawnDrones();
+        SpawnDoors();
     }
  
 
@@ -32,6 +35,15 @@ public class DroneSpawner : NetworkBehaviour
                 GameObject go = Instantiate(WaterDrone, myObjects[i].transform.position, Quaternion.identity);
                 NetworkServer.Spawn(go);
             }
+        }
+    }
+
+    void SpawnDoors()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            GameObject go = Instantiate(Door, doorObjects[i].transform.position, Quaternion.identity);
+            NetworkServer.Spawn(go);
         }
     }
 }

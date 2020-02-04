@@ -6,6 +6,10 @@ TagManager:
   tags:
   - WaterBullet
   - FireBullet
+  - Floor
+  - Ceiling
+  - MainMemory
+  - L3
   layers:
   - Default
   - TransparentFX

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1838376797660549039}
   - component: {fileID: -3938974956814896274}
   - component: {fileID: 7913209538494249745}
+  - component: {fileID: -2296199614760902300}
   m_Layer: 0
   m_Name: WaterDrone
   m_TagString: Untagged
@@ -96,7 +97,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 90
   m_CollisionDetection: 0
 --- !u!65 &1838376797660549039
 BoxCollider:
@@ -156,3 +157,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee26ea126f55de44a992de252231b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: -100
+--- !u!114 &-2296199614760902300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838376797660580109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13d6c522af31447398568cc65334232b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1

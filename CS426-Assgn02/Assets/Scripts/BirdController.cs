@@ -79,4 +79,25 @@ public class BirdController : NetworkBehaviour
         newBullet.GetComponent<Rigidbody>().velocity += Vector3.up * 1;
         newBullet.GetComponent<Rigidbody>().AddForce(newBullet.transform.forward * 1500);
     }
+    
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //allows for the target to only be destroyed if hit by a bullet
+        if (other.CompareTag("MainMemory"))
+        {
+            Debug.Log("Hit MM barrier");
+            speed = 15f;
+        }
+        if (other.CompareTag("L3"))
+        {
+            Debug.Log("Hit L3 barrier");
+            speed = 100f;
+        }
+
+        /*if (collision.collider.CompareTag("Ceiling"))
+        {
+            force = Mathf.Abs(force) * -1f;
+        }*/
+    }
 }

@@ -7,7 +7,7 @@ public class WaterDroneTarget : NetworkBehaviour
 {
 
     //public Score scoreManager;
-    public float force = -50f;
+    public float force = -30f;
     Rigidbody rb;
     Transform t;
 

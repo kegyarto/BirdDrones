@@ -31,6 +31,7 @@ public class BirdController : NetworkBehaviour
             return;
         }
 
+        //puts the camera behind the player
         Camera.main.transform.position = this.transform.position - this.transform.forward * 10 + this.transform.up * 3;
         Camera.main.transform.LookAt(this.transform.position);
         Camera.main.transform.parent = this.transform;
@@ -74,6 +75,7 @@ public class BirdController : NetworkBehaviour
     [Command]
     void CmdSpawnMyBullet()
     {
+        //code to shoot
         GameObject newBullet = Instantiate(bullet, cannon.transform.position, cannon.transform.rotation);
         NetworkServer.Spawn(newBullet);
         newBullet.GetComponent<Rigidbody>().velocity += Vector3.up * 1;
@@ -83,21 +85,27 @@ public class BirdController : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //allows for the target to only be destroyed if hit by a bullet
+        //allows bird speed to be increas or decreased depending on the area
         if (other.CompareTag("MainMemory"))
         {
-            Debug.Log("Hit MM barrier");
             speed = 15f;
         }
         if (other.CompareTag("L3"))
         {
-            Debug.Log("Hit L3 barrier");
-            speed = 100f;
+            speed = 25f;
+        }
+        if (other.CompareTag("L2"))
+        {
+            speed = 35f;
+        }
+        if(other.CompareTag("L1"))
+        {
+            speed = 45f;
+        }
+        if(other.CompareTag("CPU"))
+        {
+            speed = 55f;
         }
 
-        /*if (collision.collider.CompareTag("Ceiling"))
-        {
-            force = Mathf.Abs(force) * -1f;
-        }*/
     }
 }

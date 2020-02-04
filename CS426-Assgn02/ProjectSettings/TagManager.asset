@@ -10,6 +10,9 @@ TagManager:
   - Ceiling
   - MainMemory
   - L3
+  - L2
+  - L1
+  - CPU
   layers:
   - Default
   - TransparentFX

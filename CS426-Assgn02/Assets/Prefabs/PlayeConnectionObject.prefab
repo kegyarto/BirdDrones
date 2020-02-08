@@ -81,3 +81,4 @@ MonoBehaviour:
     type: 3}
   PlayerUnitPrefab2: {fileID: 8251603140606034248, guid: 40f3d9ea1fd8f67469df5d268c6202b6,
     type: 3}
+  TextUI: {fileID: 4182866621395753984, guid: bf4fe5c0df01e91409a6709629a80d99, type: 3}

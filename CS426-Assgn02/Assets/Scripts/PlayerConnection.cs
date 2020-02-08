@@ -18,6 +18,7 @@ public class PlayerConnection : NetworkBehaviour
 
     public GameObject PlayerUnitPrefab1;
     public GameObject PlayerUnitPrefab2;
+    public GameObject TextUI;
 
     // Update is called once per frame
     void Update()
@@ -31,6 +32,7 @@ public class PlayerConnection : NetworkBehaviour
     [Command]
     void CmdSpawnMyBird()
     {
+
         //give the player a fire or water bird depending on player count
         if (NetworkServer.connections.Count % 2 == 0)
         {

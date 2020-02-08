@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class BirdController : NetworkBehaviour
 {
@@ -21,6 +22,10 @@ public class BirdController : NetworkBehaviour
         speed = 10f;
         rotationSpeed = 100f;
         rb = GetComponent<Rigidbody>();
+        if (this.CompareTag("FireBird"))
+        {
+            GetComponentInChildren<Text>().text = "Level: Main Memory";
+        }
     }
 
     // Update is called once per frame
@@ -85,25 +90,46 @@ public class BirdController : NetworkBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         //allows bird speed to be increas or decreased depending on the area
         if (other.CompareTag("MainMemory"))
         {
+            if (this.CompareTag("FireBird"))
+            {
+                GetComponentInChildren<Text>().text = "Level: Main Memory";
+            }
             speed = 15f;
         }
         if (other.CompareTag("L3"))
         {
+            if (this.CompareTag("FireBird"))
+            {
+                GetComponentInChildren<Text>().text = "Level: L3";
+            }
             speed = 25f;
         }
         if (other.CompareTag("L2"))
         {
+            if (this.CompareTag("FireBird"))
+            {
+                GetComponentInChildren<Text>().text = "Level: L2";
+            }
             speed = 35f;
         }
         if(other.CompareTag("L1"))
         {
+            if (this.CompareTag("FireBird"))
+            {
+                GetComponentInChildren<Text>().text = "Level: L1";
+            }
             speed = 45f;
         }
         if(other.CompareTag("CPU"))
         {
+            if (this.CompareTag("FireBird"))
+            {
+                GetComponentInChildren<Text>().text = "Level: CPU. Congrats you saved Big Computer!!!!!!!!!!";
+            }
             speed = 55f;
         }
 

@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class DroneSpawner : NetworkBehaviour
 {
-
     public GameObject WaterDrone;
     public GameObject FireDrone;
     public GameObject Door;
@@ -13,6 +12,7 @@ public class DroneSpawner : NetworkBehaviour
     public GameObject[] doorObjects;
     public List<GameObject> droneArray;
     public List<GameObject> doorArray;
+    //public GameObject TextUI;
 
 
     // Start is called before the first frame update
@@ -43,21 +43,21 @@ public class DroneSpawner : NetworkBehaviour
                 NetworkServer.Destroy(doorArray[0]);
             }
         }
-        else if (x >= 6)
+        if (x >= 6)
         {
             if (doorArray[1] != null)
             {
                 NetworkServer.Destroy(doorArray[1]);
             }
         }
-        else if (x >= 10)
+        if (x >= 10)
         {
             if (doorArray[2] != null)
             {
                 NetworkServer.Destroy(doorArray[2]);
             }
         }
-        else if (x >= 14)
+        if (x >= 14)
         {
             if (doorArray[3] != null)
             {
@@ -70,7 +70,7 @@ public class DroneSpawner : NetworkBehaviour
     void SpawnDrones()
     {
         
-        for(int i = 0; i < 15; i++)
+        for(int i = 0; i < 14; i++)
         {
             if (i % 2 == 0)
             {

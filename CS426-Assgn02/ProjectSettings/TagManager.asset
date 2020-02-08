@@ -13,6 +13,7 @@ TagManager:
   - L2
   - L1
   - CPU
+  - FireBird
   layers:
   - Default
   - TransparentFX

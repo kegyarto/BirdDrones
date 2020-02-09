@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class RedDroneTarget : NetworkBehaviour
 {
     //public Score scoreManager;
-    public float force = 10f;
+    public float force = 5f;
     Rigidbody rb;
     Transform t;
 

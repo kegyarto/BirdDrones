@@ -7,7 +7,7 @@ public class WaterDroneTarget : NetworkBehaviour
 {
 
     //public Score scoreManager;
-    public float force = -5f;
+    public float force = -5000f;
     Rigidbody rb;
     Transform t;
 
@@ -27,7 +27,7 @@ public class WaterDroneTarget : NetworkBehaviour
             return;
         }
 
-        rb.AddForce(t.up * force);
+        rb.AddForce(t.up * force * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)

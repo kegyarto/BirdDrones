@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class BirdController : NetworkBehaviour
 {
+    public bool check;
 
     public float speed;
 
@@ -16,9 +17,15 @@ public class BirdController : NetworkBehaviour
     public GameObject cannon;
     public GameObject bullet;
     public Rigidbody rb;
+    AudioSource sound;
+    AudioSource bird;
+    public AudioClip audioaudio;
+    public AudioClip audio2;
     // Start is called before the first frame update
     void Start()
     {
+        check = false;
+
         speed = 10f;
         rotationSpeed = 100f;
         rb = GetComponent<Rigidbody>();
@@ -31,6 +38,8 @@ public class BirdController : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (!hasAuthority)
         {
             return;
@@ -40,41 +49,81 @@ public class BirdController : NetworkBehaviour
         Camera.main.transform.position = this.transform.position - this.transform.forward * 10 + this.transform.up * 3;
         Camera.main.transform.LookAt(this.transform.position);
         Camera.main.transform.parent = this.transform;
-
+        /*if (sound == null)
+        { // if AudioSource is missing
+            Debug.LogWarning("AudioSource component missing from this gameobject. Adding one.");
+            // let's just add the AudioSource component dynamically
+            sound = gameObject.AddComponent<AudioSource>();
+        }*/
         //move player left right up down
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             transform.Translate(Input.GetAxis("Horizontal") * Time.deltaTime * speed, 0f, Input.GetAxis("Vertical") * Time.deltaTime * speed);
+            if (bird == null)
+            { // if AudioSource is missing
+                Debug.LogWarning("AudioSource component missing from this gameobject. Adding one.");
+                // let's just add the AudioSource component dynamically
+                bird = gameObject.AddComponent<AudioSource>();
+
+
+                bird.clip = audio2;
+
+
+            }
+            if (check == false)
+            {
+                bird.Play();
+                check = true;
+            }
         }
         else
         {
             rb.velocity = Vector3.zero;
+            if (check == true)
+            {
+
+                bird.Stop();
+                check = false;
+            }
+
         }
 
-        //rotate camera based on mouse input
-        rotX -= Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSpeed;
-        rotY += Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
+            //rotate camera based on mouse input
+            rotX -= Input.GetAxis("Mouse Y") * Time.deltaTime * rotationSpeed;
+            rotY += Input.GetAxis("Mouse X") * Time.deltaTime * rotationSpeed;
 
-        if (rotX < -10)
-        {
-            rotX = -10;
-        }
-        else if (rotX > 15)
-        {
-            rotX = 15;
-        }
+            if (rotX < -10)
+            {
+                rotX = -10;
+            }
+            else if (rotX > 15)
+            {
+                rotX = 15;
+            }
 
-        //rotate player position based on camera postition
-        transform.rotation = Quaternion.Euler(0, rotY, 0);
-        Camera.main.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
+            //rotate player position based on camera postition
+            transform.rotation = Quaternion.Euler(0, rotY, 0);
+            Camera.main.transform.rotation = Quaternion.Euler(rotX, rotY, 0);
 
-        transform.forward = Camera.main.transform.forward;
+            transform.forward = Camera.main.transform.forward;
 
         //shooting bullet
         if (Input.GetButtonDown("Fire1"))
         {
             CmdSpawnMyBullet();
+
+            if (sound == null)
+            { // if AudioSource is missing
+                Debug.LogWarning("AudioSource component missing from this gameobject. Adding one.");
+                // let's just add the AudioSource component dynamically
+                sound = gameObject.AddComponent<AudioSource>();
+            }
+            sound.PlayOneShot(audioaudio);
+            
+
+
         }
+        
     }
 
     [Command]
@@ -97,6 +146,7 @@ public class BirdController : NetworkBehaviour
             if (this.CompareTag("FireBird"))
             {
                 GetComponentInChildren<Text>().text = "Level: Main Memory";
+                
             }
             speed = 15f;
         }

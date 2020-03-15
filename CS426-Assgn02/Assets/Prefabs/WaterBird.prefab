@@ -722,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e005f82a6034a364286543d3411ac66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  check: 0
   speed: 0
   rotationSpeed: 0
   rotX: 0
@@ -729,6 +730,10 @@ MonoBehaviour:
   cannon: {fileID: 9215955140390445262}
   bullet: {fileID: 3265370867312133804, guid: 90a063e5ab4036e4588e4c57b781072b, type: 3}
   rb: {fileID: 0}
+  sound: {fileID: 0}
+  bird: {fileID: 0}
+  audioaudio: {fileID: 8300000, guid: 305aada540c6daf4da99b3b4b3649898, type: 3}
+  audio2: {fileID: 8300000, guid: 0d947df4d8823964ba665ef1377c65a5, type: 3}
 --- !u!114 &-7787416159427616999
 MonoBehaviour:
   m_ObjectHideFlags: 0

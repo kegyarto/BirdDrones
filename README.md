@@ -5,8 +5,8 @@ Kaylyn Egyarto
 ASSIGNMENT 5 ReadMe
 
 Add at least 2 physics constructs  (beyond what the Asgn 2 did); one the constructs must implement collisions.
-    1) boxCollider on the walls: Before the bird could go through the walls but now the boxCollider hit the bird back from going through the walls
-    2)added a rigid body and capsule collider: to spot light before the light stayed stationary but now the light moves when it is hit on the wall spot.
+    1) boxCollider on the walls: Before the bird could go through the walls but now the boxCollider hit the bird back from going through  by the walls.
+    2)added a rigid body and capsule collider: to spot light before the light stayed stationary but now the light moves when it is hit on the wall spot.(the light bright circle lights on the floor and walls move when they are hit by an object) This enhances the game users experience because it appears you are moving more seem like the game revolves around the user because the lights in the room react to when you hit into them.
 Add at least 1 billboard with textures to your level (beyond what the Asgn 2 did)
   1) added a billboard that shows the controls for the user to enter to be able to play the game
 Add at least 2 lights to your level (beyond what the Asgn 2 did); one of the lights should be colored according to your design, and should be stationary.

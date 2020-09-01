@@ -1,8 +1,6 @@
 # CS426-Assigment05
 Kaylyn Egyarto
-653524926
 
-ASSIGNMENT 5 ReadMe
 
 Add at least 2 physics constructs  (beyond what the Asgn 2 did); one the constructs must implement collisions.
     1) boxCollider on the walls: Before the bird could go through the walls but now the boxCollider hit the bird back from going through  by the walls.
